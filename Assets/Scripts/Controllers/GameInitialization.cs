@@ -16,6 +16,7 @@ namespace Platformer.Controllers
             controllers.Add(playerInitialization);
 
             controllers.Add(new PlayerAnimationController(data.playerConfig, player));
+            controllers.Add(new PlayerTransformController(data.playerConfig, player));
             controllers.Add(new ParallaxManager(camera.transform, data.back));
         }
     }
