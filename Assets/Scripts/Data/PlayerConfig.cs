@@ -9,5 +9,10 @@ namespace Platformer.Data
         public CharacterView view;
         public SpriteAnimationsConfig spriteAnimationsConfig;
         public int animationSpeed = 10;
+        public float walkSpeed = 3f;
+        public float jumpStartSpeed = 8f;
+        public float movingThresh = 0.1f;
+        public float flyThresh = 1f;
+        public float groundLevel = 0.5f;
     }
 }
