@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   view: {fileID: 950273207332755212, guid: 4d3fbe3336174eb40a5078481b585e6f, type: 3}
   spriteAnimationsConfig: {fileID: 11400000, guid: b90f2138d1455fe479f14a0ca9ffb099, type: 2}
-  animationSpeed: 15
-  walkSpeed: 500
+  animationSpeed: 16
+  walkSpeed: 600
   movingThresh: 0.1
   flyThresh: 1
-  jumpForce: 550
+  jumpForce: 2700
   jumpThresh: 0.1
   groundLevel: -5.7
   jumpStartSpeed: 8
