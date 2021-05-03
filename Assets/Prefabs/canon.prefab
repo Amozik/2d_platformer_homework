@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7502182952556532871}
   - component: {fileID: 1793476201738649758}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2461000809145510757}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5354180208557098183}
   - component: {fileID: 1232527894737612177}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Render
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7343777653884977925}
   - component: {fileID: 5682298006481063199}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3697750612272320851}
   - component: {fileID: 3776084830095576558}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -376,7 +376,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5509848951007119561}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Emmiter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
