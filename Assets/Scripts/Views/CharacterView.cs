@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using Platformer.Controllers;
+using UnityEngine;
 
 namespace Platformer.Views
 {
@@ -9,6 +11,10 @@ namespace Platformer.Views
         [SerializeField]
         private Transform _transform;
 
+        public Transform Transform => _transform;
         public SpriteRenderer SpriteRenderer => _spriteRenderer;
+        
+        public Action<PlayerState> OnStateChange;
+        
     }
 }
