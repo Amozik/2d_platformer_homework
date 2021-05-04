@@ -6,6 +6,7 @@ namespace Platformer.Data
     public class GameConfig : ScriptableObject
     {
         public PlayerConfig playerConfig;
+        public SpriteAnimationsConfig coinAnimationsConfig;
         public GameObject back;
     }
 }

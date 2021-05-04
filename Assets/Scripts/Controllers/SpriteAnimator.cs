@@ -22,12 +22,12 @@ namespace Platformer.Controllers
                 Counter += deltaTime * Speed;
                 if (Loop)
                 {
-                    while (Counter > Sprites.Count)
+                    while (Counter >= Sprites.Count)
                     {
                         Counter -= Sprites.Count;
                     }
                 }
-                else if (Counter > Sprites.Count)
+                else if (Counter >= Sprites.Count)
                 {
                     Counter = Sprites.Count - 1;
                     Sleeps = true;

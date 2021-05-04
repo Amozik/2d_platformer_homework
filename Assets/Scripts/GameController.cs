@@ -34,7 +34,7 @@ namespace Platformer
 
         private void FixedUpdate()
         {
-            var deltaTime = Time.deltaTime;
+            var deltaTime = Time.fixedDeltaTime;
             _controllersHandler.FixedUpdate(deltaTime);
         }
 

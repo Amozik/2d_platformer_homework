@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Platformer.Interfaces;
+using Platformer.Physics;
 using Platformer.Views;
 using UnityEngine;
 
@@ -8,9 +9,9 @@ namespace Platformer.Controllers
     public class BulletEmitterController : IUpdate
     {
         private const float _delay = 1;
-        private const float _startSpeed = 5;
+        private const float _startSpeed = 25f;
 
-        private List<BulletController> _bullets = new List<BulletController>();
+        private List<PhysicsBullet> _bullets = new List<PhysicsBullet>();
         private Transform _transform;
 
         private int _currentIndex;
@@ -21,7 +22,7 @@ namespace Platformer.Controllers
             _transform = transform;
             foreach (var bulletView in bulletViews)
             {
-                _bullets.Add(new BulletController(bulletView));
+                _bullets.Add(new PhysicsBullet(bulletView));
             }
         }
 
@@ -38,7 +39,6 @@ namespace Platformer.Controllers
                 _currentIndex++;
                 if (_currentIndex >= _bullets.Count) _currentIndex = 0;
             }
-            _bullets.ForEach(b => b.Update(deltaTime));
         }
     }
 }
