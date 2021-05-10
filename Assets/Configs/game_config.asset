@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: game_config
   m_EditorClassIdentifier: 
   playerConfig: {fileID: 11400000, guid: 2de48daf701971e4ab86785a71d4627a, type: 2}
+  coinAnimationsConfig: {fileID: 11400000, guid: b6d4f3b91a8dba041ab9b06fd1ffbca0, type: 2}
   back: {fileID: 5467389492131969249, guid: 1504040520c614449b89be6d0c735f87, type: 3}
