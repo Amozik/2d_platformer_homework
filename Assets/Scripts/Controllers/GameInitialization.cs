@@ -14,6 +14,8 @@ namespace Platformer.Controllers
 
             var player = playerInitialization.GetPlayer();
             var level = levelInitialization.Level;
+            
+            controllers.Add(new GeneratorLevelController(level.GenerateLevelView));
             controllers.Add(levelInitialization.WaterAnimator); 
             
             controllers.Add(playerInitialization);
@@ -26,6 +28,9 @@ namespace Platformer.Controllers
             controllers.Add(new CameraController(player.Transform, camera.transform));
             controllers.Add(new LevelCompleteManager(player, level.DeathZones, level.WinZones));
             controllers.Add(new ParallaxManager(camera.transform, data.back));
+
+            if (level.SimpleEnemy != null)
+                level.SimpleEnemy.target = player.Transform;
         }
     }
 }
