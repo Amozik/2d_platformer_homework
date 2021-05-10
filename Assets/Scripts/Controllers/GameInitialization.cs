@@ -14,6 +14,7 @@ namespace Platformer.Controllers
 
             var player = playerInitialization.GetPlayer();
             var level = levelInitialization.Level;
+            controllers.Add(levelInitialization.WaterAnimator); 
             
             controllers.Add(playerInitialization);
 
@@ -21,7 +22,7 @@ namespace Platformer.Controllers
             controllers.Add(new PlayerRigidbodyController(data.playerConfig, player));
             controllers.Add(new CannonAimController(level.CanonView.MuzzleTransform, player.Transform));
             controllers.Add(new BulletEmitterController(level.CanonView.BulletViews, level.CanonView.EmmiterTransform));
-            controllers.Add(new CoinsController(player, level.CoinViews,  new SpriteAnimator(data.coinAnimationsConfig)));
+            controllers.Add(new CoinsController(player, level.CoinViews, new SpriteAnimator(data.coinAnimationsConfig)));
             controllers.Add(new CameraController(player.Transform, camera.transform));
             controllers.Add(new LevelCompleteManager(player, level.DeathZones, level.WinZones));
             controllers.Add(new ParallaxManager(camera.transform, data.back));

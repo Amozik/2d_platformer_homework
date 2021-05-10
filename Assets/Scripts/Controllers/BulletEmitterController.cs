@@ -9,7 +9,7 @@ namespace Platformer.Controllers
     public class BulletEmitterController : IUpdate
     {
         private const float _delay = 1;
-        private const float _startSpeed = 5f;
+        private const float _startSpeed = 25f;
 
         private List<PhysicsBullet> _bullets = new List<PhysicsBullet>();
         private Transform _transform;
