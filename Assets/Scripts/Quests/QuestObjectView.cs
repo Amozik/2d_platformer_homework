@@ -1,30 +1,17 @@
-using Platformer.Views;
+﻿using Platformer.Views;
 using UnityEngine;
 
 namespace Platformer.Quests
 {
-    public class QuestObjectView : LevelObjectView
+    public abstract class QuestObjectView : LevelObjectView
     {
-        public int Id => _id;
-  
-        [SerializeField] private Color _completedColor;
-        [SerializeField] private int _id;
+        [SerializeField]
+        private int _id;
         
-        private Color _defaultColor;
+        public int Id => _id;
+        
+        public abstract void ProcessComplete();
+        public abstract void ProcessActivate();
 
-        private void Awake()
-        {
-            _defaultColor = SpriteRenderer.color;
-        }
-
-        public void ProcessComplete()
-        {
-            SpriteRenderer.color = _completedColor;
-        }
-  
-        public void ProcessActivate()
-        {
-            SpriteRenderer.color = _defaultColor;
-        }
     }
 }

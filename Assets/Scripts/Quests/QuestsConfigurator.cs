@@ -9,30 +9,28 @@ namespace Platformer.Quests
 {
     public class QuestsConfigurator : MonoBehaviour
     {
-        [SerializeField] private QuestObjectView _singleQuestView;
-  
-        [SerializeField] private QuestStoryConfig[] _questStoryConfigs;
-        [SerializeField] private QuestObjectView[] _questObjects;
+        [SerializeField]
+        private QuestStoryConfig[] _questStoryConfigs;
+        [SerializeField]
+        private QuestObjectView[] _questObjects;
+        [SerializeField]
+        private QuestObjectView[] _completeQuestStoryObjects;
 
         private readonly Dictionary<QuestType, Func<IQuestModel>> _questFactories = new Dictionary<QuestType, Func<IQuestModel>>
         {
             { QuestType.Switch, () => new SwitchQuestModel() },
         };
   
-        private readonly Dictionary<QuestStoryType, Func<List<IQuest>, IQuestStory>> _questStoryFactories = new Dictionary<QuestStoryType, Func<List<IQuest>, IQuestStory>>
+        private readonly Dictionary<QuestStoryType, Func<List<IQuest>, QuestObjectView, IQuestStory>> _questStoryFactories = new Dictionary<QuestStoryType, Func<List<IQuest>, QuestObjectView, IQuestStory>>
         {
-            { QuestStoryType.Common, questCollection => new QuestStory(questCollection) },
-            { QuestStoryType.Resettable, questCollection => new ResettableQuestStory(questCollection) },
+            { QuestStoryType.Common, (questCollection, completeView) => new QuestStory(questCollection, completeView) },
+            { QuestStoryType.Resettable, (questCollection, completeView) => new ResettableQuestStory(questCollection, completeView) },
         };
 
         private List<IQuestStory> _questStories;
-        private Quest _singleQuest;
 
         private void Start()
         {
-            _singleQuest = new Quest(_singleQuestView, new SwitchQuestModel());
-            _singleQuest.Reset();
-      
             _questStories = new List<IQuestStory>();
             foreach (var questStoryConfig in _questStoryConfigs)
             {
@@ -59,8 +57,10 @@ namespace Platformer.Quests
                 if (quest == null) continue;
                 quests.Add(quest);
             }
+
+            var completeQuestStoryView = _completeQuestStoryObjects.FirstOrDefault(value => value.Id == config.id);
             // какая логика будет у цепочки определяем по типу QuestStoryType
-            return _questStoryFactories[config.questStoryType].Invoke(quests);
+            return _questStoryFactories[config.questStoryType].Invoke(quests, completeQuestStoryView);
         }
 
         private IQuest CreateQuest(QuestConfig config)

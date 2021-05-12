@@ -8,12 +8,14 @@ namespace Platformer.Quests
 {
     public sealed class QuestStory : IQuestStory
     {
-        private readonly List<IQuest> _questsCollection; 
+        private readonly List<IQuest> _questsCollection;
+        private readonly QuestObjectView _questStoryCompleteView;
   
-        public QuestStory(List<IQuest> questsCollection)
+        public QuestStory(List<IQuest> questsCollection, QuestObjectView questStoryCompleteView)
         {
             // квесты загружаются в цепочку извне
             _questsCollection = questsCollection ?? throw new ArgumentNullException(nameof(questsCollection));
+            _questStoryCompleteView = questStoryCompleteView;
             Subscribe();
             // старт первого квеста
             ResetQuest(0);
@@ -34,6 +36,7 @@ namespace Platformer.Quests
             var index = _questsCollection.IndexOf(quest);
             if (IsDone)
             {
+                _questStoryCompleteView?.ProcessComplete();
                 Debug.Log("Story done!");
             }
             else

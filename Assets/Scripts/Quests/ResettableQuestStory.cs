@@ -9,11 +9,13 @@ namespace Platformer.Quests
     public sealed class ResettableQuestStory : IQuestStory
     {
         private readonly List<IQuest> _questsCollection;
+        private readonly QuestObjectView _questStoryCompleteView;
         private int _currentIndex;
 
-        public ResettableQuestStory(List<IQuest> questsCollection)
+        public ResettableQuestStory(List<IQuest> questsCollection, QuestObjectView questStoryCompleteView)
         {
             _questsCollection = questsCollection ?? throw new ArgumentNullException(nameof(questsCollection));
+            _questStoryCompleteView = questStoryCompleteView;
             Subscribe();
             // все квесты активны сразу
             ResetQuests();
@@ -42,7 +44,11 @@ namespace Platformer.Quests
             if (_currentIndex == index)
             {
                 _currentIndex++;
-                if (IsDone) Debug.Log("Story done!");
+                if (IsDone)
+                {
+                    _questStoryCompleteView?.ProcessComplete();
+                    Debug.Log("Story done!");
+                }
             }
             else
             {
