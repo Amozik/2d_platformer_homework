@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 950273207332755215}
   - component: {fileID: 950273207332755212}
   - component: {fileID: 5726565501667630107}
-  m_Layer: 0
+  - component: {fileID: 4757881144753182348}
+  m_Layer: 7
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,7 +49,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 950273208575504815}
   _transform: {fileID: 950273207332755215}
   _rigidbody2D: {fileID: 5726565501667630107}
-  _collider2D: {fileID: 950273207629806963}
+  _collider2D: {fileID: 4757881144753182348}
 --- !u!50 &5726565501667630107
 Rigidbody2D:
   serializedVersion: 4
@@ -70,6 +71,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &4757881144753182348
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950273207332755213}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.5
 --- !u!1 &950273207629806961
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,8 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 950273207629806960}
-  - component: {fileID: 950273207629806963}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Preview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,22 +118,6 @@ Transform:
   m_Father: {fileID: 950273207332755215}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &950273207629806963
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950273207629806961}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.5
 --- !u!1 &950273208575504812
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 950273208575504814}
   - component: {fileID: 950273208575504815}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Render
   m_TagString: Untagged
   m_Icon: {fileID: 0}
