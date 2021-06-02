@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Pathfinding;
 using Platformer.Data;
 using Platformer.Views;
 using UnityEngine;
@@ -21,11 +22,15 @@ namespace Platformer.Levels
         [SerializeField]
         private SpriteAnimationsConfig _waterAnimationsConfig;
 
+        [SerializeField]
+        private AIDestinationSetter _simpleEnemy;
+        
         public List<LevelObjectView> CoinViews => _coinViews;
         public List<LevelObjectView> DeathZones => _deathZones;
         public List<LevelObjectView> WinZones => _winZones;
         public CannonView CanonView => _canonView;
         public SpriteRenderer Water => _water;
         public SpriteAnimationsConfig WaterAnimationsConfig => _waterAnimationsConfig;
+        public AIDestinationSetter SimpleEnemy => _simpleEnemy;
     }
 }

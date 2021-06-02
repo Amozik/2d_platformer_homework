@@ -26,6 +26,9 @@ namespace Platformer.Controllers
             controllers.Add(new CameraController(player.Transform, camera.transform));
             controllers.Add(new LevelCompleteManager(player, level.DeathZones, level.WinZones));
             controllers.Add(new ParallaxManager(camera.transform, data.back));
+
+            if (level.SimpleEnemy != null)
+                level.SimpleEnemy.target = player.Transform;
         }
     }
 }
