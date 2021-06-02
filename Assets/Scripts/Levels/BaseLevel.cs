@@ -24,6 +24,9 @@ namespace Platformer.Levels
 
         [SerializeField]
         private AIDestinationSetter _simpleEnemy;
+
+        [SerializeField] 
+        private GenerateLevelView _generateLevelView;
         
         public List<LevelObjectView> CoinViews => _coinViews;
         public List<LevelObjectView> DeathZones => _deathZones;
@@ -32,5 +35,6 @@ namespace Platformer.Levels
         public SpriteRenderer Water => _water;
         public SpriteAnimationsConfig WaterAnimationsConfig => _waterAnimationsConfig;
         public AIDestinationSetter SimpleEnemy => _simpleEnemy;
+        public GenerateLevelView GenerateLevelView => _generateLevelView;
     }
 }

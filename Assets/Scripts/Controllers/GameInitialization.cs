@@ -14,6 +14,8 @@ namespace Platformer.Controllers
 
             var player = playerInitialization.GetPlayer();
             var level = levelInitialization.Level;
+            
+            controllers.Add(new GeneratorLevelController(level.GenerateLevelView));
             controllers.Add(levelInitialization.WaterAnimator); 
             
             controllers.Add(playerInitialization);
